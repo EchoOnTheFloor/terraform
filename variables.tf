@@ -1,9 +1,3 @@
-variable "gcp_service_list" {
-  description ="The list of apis necessary for the project"
-  type = list(string)
-  default = [
-    "compute.googleapis.com",
-    "storage.googleapis.com",
-    "servicenetworking.googleapis.com"
-  ]
-}
+variable "project_id" { type = string }
+variable "region"     { type = string; default = "europe-west1" }
+variable "zone"       { type = string; default = "europe-west1-b" }

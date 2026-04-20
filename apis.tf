@@ -1,5 +1,9 @@
-resource "google_project_service" "services" {
-  for_each  = toset(var.services)
-  project   = "my-project"
-  service   = each.value
+resource "google_project_service" "apis" {
+  for_each = toset([
+    "compute.googleapis.com",
+    "servicenetworking.googleapis.com",
+    "sqladmin.googleapis.com"
+  ])
+  service = each.key
+  disable_on_destroy = false
 }
